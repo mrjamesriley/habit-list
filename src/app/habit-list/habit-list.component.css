@@ -1,0 +1,10 @@
+.habit {
+  border: 1px solid black;
+  padding: 5px;
+  margin-bottom: 5px;
+  cursor: pointer;
+}
+
+.habit--complete {
+  background-color: #daffda
+}

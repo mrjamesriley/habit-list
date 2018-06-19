@@ -1,0 +1,8 @@
+<p>Your habits</p>
+
+<div class="habit" *ngFor="let habit of habits"
+  [ngClass]="{ 'habit--complete': habit.complete }"
+  (click)="toggleHabit(habit)">
+  {{ habit.name }}
+
+</div>
