@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
 
 @Component({
   selector: 'habit-list',
@@ -8,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class HabitListComponent implements OnInit {
 
   habits = []
+  settingsMode = false
 
   constructor() {
     this.habits = [
@@ -18,10 +20,19 @@ export class HabitListComponent implements OnInit {
   }
 
   ngOnInit() {
+    console.log('the first one is: ' + _.first(['reya', 'jack'])
+  }
+
+  trashHabit(habit) {
+    this.habits = _.without(this.habits, habit)
   }
 
   toggleHabit(habit) {
-    habit.complete = !habit.complete
   }
+
+  toggleSettings() {
+    this.settingsMode = !this.settingsMode
+  }
+
 
 }

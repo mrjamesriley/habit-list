@@ -1,10 +1,30 @@
 .habit {
   border: 1px solid black;
+  border-radius: 3px;
   padding: 5px;
   margin-bottom: 5px;
   cursor: pointer;
+  position: relative;
+}
+
+.habit__tick {
+  position: absolute;
+  right: 10px;
+  top: 8px;
 }
 
 .habit--complete {
   background-color: #daffda
+}
+
+.habit-list__cog {
+  position: absolute;
+  right: 12px;
+  top: 4px;
+  color: #c5c5c5;
+  cursor: pointer;
+}
+
+.habit-list__cog:hover {
+  color: black
 }

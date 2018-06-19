@@ -1,8 +1,36 @@
-<p>Your habits</p>
+<div class="container">
 
-<div class="habit" *ngFor="let habit of habits"
-  [ngClass]="{ 'habit--complete': habit.complete }"
-  (click)="toggleHabit(habit)">
-  {{ habit.name }}
+  <div class="row" style="display: block">
+    <div class="col-xs-12">
+
+    <p>Your Habits</p>
+    <i class="fas fa-cog habit-list__cog" (click)="toggleSettings()"></i>
+
+    <div class="habit" *ngFor="let habit of habits"
+      [ngClass]="{ 'habit--complete': habit.complete }"
+      (click)="toggleHabit(habit)">
+
+      <i class="fas fa-trash habit__trash" *ngIf="settingsMode"
+        (click)="trashHabit(habit)"></i>
+
+      <i class="fas fa-check habit__tick" *ngIf="habit.complete"></i>
+      {{ habit.name }}
+
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+
+    <div class="col-xs-10">
+      <input placeholder="Workout" class="form-control" />
+    </div>
+
+    <div class="col-xs-2">
+      <button class="btn btn-primary" (click)="addHabit()">Add</button>
+    </div>
+
+  </div>
 
 </div>
