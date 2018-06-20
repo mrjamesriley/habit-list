@@ -20,7 +20,6 @@ export class HabitListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('the first one is: ' + _.first(['reya', 'jack'])
   }
 
   trashHabit(habit) {
@@ -28,6 +27,7 @@ export class HabitListComponent implements OnInit {
   }
 
   toggleHabit(habit) {
+    habit.complete = !habit.complete
   }
 
   toggleSettings() {
