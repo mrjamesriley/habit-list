@@ -1,9 +1,9 @@
 <div class="container">
 
   <div class="row" style="display: block">
-    <div class="col-xs-12">
+    <div class="col-sm">
 
-    <p>Your Habits</p>
+    <p>Daily Habits</p>
     <i class="fas fa-cog habit-list__cog" (click)="toggleSettings()"></i>
 
     <div class="habit" *ngFor="let habit of habits"
@@ -21,14 +21,17 @@
 
   </div>
 
-  <div class="row">
+  <div class="row no-gutters add-workout" *ngIf="settingsMode">
 
-    <div class="col-xs-10">
-      <input placeholder="Workout" class="form-control" />
+    <div class="col-9">
+      <input placeholder="New Habit" class="form-control"
+       (keyup)="addWorkoutKeyup($event)" [(ngModel)]="newHabitName" />
     </div>
 
-    <div class="col-xs-2">
-      <button class="btn btn-primary" (click)="addHabit()">Add</button>
+    <div class="col-3">
+      <button class="btn btn-primary"
+        (click)="addHabit()"
+        style="width: 100%">Add</button>
     </div>
 
   </div>

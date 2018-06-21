@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
@@ -10,6 +10,7 @@ export class HabitListComponent implements OnInit {
 
   habits = []
   settingsMode = false
+  newHabitName = ''
 
   constructor() {
     this.habits = [
@@ -19,7 +20,9 @@ export class HabitListComponent implements OnInit {
     ]
   }
 
-  ngOnInit() {
+  addHabit() {
+    this.habits.push({ name: this.newHabitName, complete: false })
+    this.newHabitName = ''
   }
 
   trashHabit(habit) {
@@ -34,5 +37,10 @@ export class HabitListComponent implements OnInit {
     this.settingsMode = !this.settingsMode
   }
 
+  addWorkoutKeyup(keyEvent) {
+    if(keyEvent.keyCode == 13) {
+      this.addHabit()
+    }
+  }
 
 }
